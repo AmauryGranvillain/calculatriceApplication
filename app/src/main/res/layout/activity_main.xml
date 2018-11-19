@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme.NoActionBar">
 
-   <TextView
-       android:layout_width="match_parent"
-       android:id="@+id/text_shownumber"
-       android:layout_height="wrap_content"
-       android:text="0"
-       android:layout_margin="10dp"
-       android:textSize="25sp"
-       android:textAlignment="textEnd"/>
+    <Button
+        android:text="Info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/button_digitinfo"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/button_custom"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/text_shownumber"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_margin="20dp"
+        android:textSize="25sp"
+        android:textAlignment="textEnd"
+        android:background="@drawable/textview_custom"
+        />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnCount="4"
-        android:rowCount="4">
+        android:rowCount="5"
+        >
 
         <Button
             android:text="+"
@@ -28,28 +44,40 @@
             android:layout_column="3"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="-"
             android:id="@+id/button_digitsub"
             android:layout_column="3"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="*"
             android:id="@+id/button_digitmult"
             android:layout_column="3"
             android:layout_row="2"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="/"
             android:id="@+id/button_digitdivision"
             android:layout_column="3"
             android:layout_row="3"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="="
             android:id="@+id/button_digitequal"
@@ -57,85 +85,117 @@
             android:layout_row="3"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:onClick="calculResult"/>
+            android:onClick="calculResult"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="0"
             android:id="@+id/button_digit0"
             android:layout_column="1"
             android:layout_row="3"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="."
             android:id="@+id/button_digitdot"
             android:layout_column="2"
             android:layout_row="3"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="1"
             android:id="@+id/button_digit1"
             android:layout_column="0"
             android:layout_row="2"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"/>
         <Button
             android:text="2"
             android:id="@+id/button_digit2"
             android:layout_column="1"
             android:layout_row="2"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"/>
         <Button
             android:text="3"
             android:id="@+id/button_digit3"
             android:layout_column="2"
             android:layout_row="2"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"/>
         <Button
             android:text="4"
             android:id="@+id/button_digit4"
             android:layout_column="0"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="5"
             android:id="@+id/button_digit5"
             android:layout_column="1"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="6"
             android:id="@+id/button_digit6"
             android:layout_column="2"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="7"
             android:id="@+id/button_digit7"
             android:layout_column="0"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="8"
             android:id="@+id/button_digit8"
             android:layout_column="1"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
         <Button
             android:text="9"
             android:id="@+id/button_digit9"
             android:layout_column="2"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
-
+            android:layout_columnWeight="1"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_custom"
+            />
     </GridLayout>
 
 </LinearLayout>

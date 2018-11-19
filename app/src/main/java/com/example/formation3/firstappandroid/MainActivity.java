@@ -1,5 +1,7 @@
 package com.example.formation3.firstappandroid;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,15 +16,23 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonDigit9,buttonDigit8,buttonDigit7,
             buttonDigit6,buttonDigit5,buttonDigit4,buttonDigit3,
             buttonDigit2,buttonDigit1,buttonDigit0,buttonDigitAdd,
-            buttonDigitEqual,buttonDigitDot,buttonDigitSub,buttonDigitMult,buttonDigitDivision;
+            buttonDigitEqual,buttonDigitDot,buttonDigitSub,buttonDigitMult,buttonDigitDivision, buttonDigitInfo;
     private TextView textView;
     private String operator;
     private Float previousValue;
+    private final String result_key = "keybundle";
 
     private View.OnClickListener digitListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             addDigitValue(v);
+        }
+    };
+    private View.OnClickListener goActivity = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this,InfoActivity.class);
+            startActivity(intent);
         }
     };
 
@@ -38,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.textView = findViewById(R.id.text_shownumber);
+
+        if(savedInstanceState != null){
+            String bundle = savedInstanceState.getString(result_key);
+            textView.setText(bundle);
+        }
+
 
         this.buttonDigit0 = findViewById(R.id.button_digit0);
         this.buttonDigit1 = findViewById(R.id.button_digit1);
@@ -55,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         this.buttonDigitDivision = findViewById(R.id.button_digitdivision);
         this.buttonDigitMult = findViewById(R.id.button_digitmult);
         this.buttonDigitEqual = findViewById(R.id.button_digitequal);
+        this.buttonDigitInfo = findViewById(R.id.button_digitinfo);
 
         buttonDigit0.setOnClickListener(digitListener);
         buttonDigit1.setOnClickListener(digitListener);
@@ -71,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDigitDivision.setOnClickListener(operatorListener);
         buttonDigitMult.setOnClickListener(operatorListener);
 
-        this.textView = findViewById(R.id.text_shownumber);
+        buttonDigitInfo.setOnClickListener(goActivity);
 
     }
 
@@ -119,7 +138,11 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void calculResult (View v){
-        calculate();
+        if(previousValue != null){
+            calculate();
+        } else {
+            textView.setText("0");
+        }
     }
 
     /**
@@ -148,6 +171,12 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setText(result.toString());
         operator = null;
+        previousValue = null;
+    }
+
+    protected void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putString(result_key,textView.getText().toString());
     }
 
 }
